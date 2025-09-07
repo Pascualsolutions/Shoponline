@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class PageController extends AbstractController
 {
-    #[Route(path: '/{slug}', name: 'page', requirements: ['slug' => '[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*'])]
+    #[Route(path: 'pages/{slug}', name: 'page', requirements: ['slug' => '[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*'])]
     public function show(string $slug, PageRepository $pageRepository): Response
     {
         $page = $pageRepository->findOneBy(['slug' => $slug]);
